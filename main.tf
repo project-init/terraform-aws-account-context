@@ -18,6 +18,16 @@ locals {
   domain                    = var.domain == "" ? data.aws_ssm_parameter.domain[0].insecure_value : var.domain
   hosted_zone_id_param_name = "/account-context/${var.aws_account_name}/domain/hosted_zone_id"
   hosted_zone_id            = var.hosted_zone_id == "" ? data.aws_ssm_parameter.hosted_zone_id[0].insecure_value : var.hosted_zone_id
+
+  # ECS
+  ecs_cluster_name_param_name              = "/account-context/${var.aws_account_name}/ecs/cluster/name"
+  ecs_cluster_name                         = var.ecs_cluster_name == "" ? data.aws_ssm_parameter.ecs_cluster_name[0].insecure_value : var.ecs_cluster_name
+  ecs_cluster_arn_param_name               = "/account-context/${var.aws_account_name}/ecs/cluster/arn"
+  ecs_cluster_arn                          = var.ecs_cluster_arn == "" ? data.aws_ssm_parameter.ecs_cluster_arn[0].insecure_value : var.ecs_cluster_arn
+  ecs_cluster_role_arn_param_name          = "/account-context/${var.aws_account_name}/ecs/cluster/role/arn"
+  ecs_cluster_role_arn                     = var.ecs_cluster_role_arn == "" ? data.aws_ssm_parameter.ecs_cluster_role_arn[0].insecure_value : var.ecs_cluster_role_arn
+  ecs_cluster_capacity_provider_param_name = "/account-context/${var.aws_account_name}/ecs/cluster/capacity_provider"
+  ecs_cluster_capacity_provider            = var.ecs_cluster_capacity_provider == "" ? data.aws_ssm_parameter.ecs_cluster_capacity_provider[0].insecure_value : var.ecs_cluster_capacity_provider
 }
 
 ########################################################################################################################
@@ -121,4 +131,60 @@ resource "aws_ssm_parameter" "hosted_zone_id" {
   name  = local.hosted_zone_id_param_name
   type  = "String"
   value = local.hosted_zone_id
+}
+
+########################################################################################################################
+### ECS
+########################################################################################################################
+
+data "aws_ssm_parameter" "ecs_cluster_name" {
+  count = var.ecs_cluster_name == "" ? 1 : 0
+  name  = local.ecs_cluster_name_param_name
+}
+
+resource "aws_ssm_parameter" "ecs_cluster_name" {
+  count = var.ecs_cluster_name != null && var.ecs_cluster_name != "" ? 1 : 0
+
+  name  = local.ecs_cluster_name_param_name
+  type  = "String"
+  value = local.ecs_cluster_name
+}
+
+data "aws_ssm_parameter" "ecs_cluster_arn" {
+  count = var.ecs_cluster_arn == "" ? 1 : 0
+  name  = local.ecs_cluster_arn_param_name
+}
+
+resource "aws_ssm_parameter" "ecs_cluster_arn" {
+  count = var.ecs_cluster_arn != null && var.ecs_cluster_arn != "" ? 1 : 0
+
+  name  = local.ecs_cluster_arn_param_name
+  type  = "String"
+  value = local.ecs_cluster_arn
+}
+
+data "aws_ssm_parameter" "ecs_cluster_role_arn" {
+  count = var.ecs_cluster_role_arn == "" ? 1 : 0
+  name  = local.ecs_cluster_role_arn_param_name
+}
+
+resource "aws_ssm_parameter" "ecs_cluster_role_arn" {
+  count = var.ecs_cluster_role_arn != null && var.ecs_cluster_role_arn != "" ? 1 : 0
+
+  name  = local.ecs_cluster_role_arn_param_name
+  type  = "String"
+  value = local.ecs_cluster_role_arn
+}
+
+data "aws_ssm_parameter" "ecs_cluster_capacity_provider" {
+  count = var.ecs_cluster_capacity_provider == "" ? 1 : 0
+  name  = local.ecs_cluster_capacity_provider_param_name
+}
+
+resource "aws_ssm_parameter" "ecs_cluster_capacity_provider" {
+  count = var.ecs_cluster_capacity_provider != null && var.ecs_cluster_capacity_provider != "" ? 1 : 0
+
+  name  = local.ecs_cluster_capacity_provider_param_name
+  type  = "String"
+  value = local.ecs_cluster_capacity_provider
 }

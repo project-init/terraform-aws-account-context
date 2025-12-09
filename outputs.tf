@@ -44,3 +44,27 @@ output "hosted_zone_id" {
   value       = local.hosted_zone_id
   description = "The main Hosted Zone ID for the account."
 }
+
+########################################################################################################################
+### ECS
+########################################################################################################################
+
+output "ecs_cluster_name" {
+  value       = local.ecs_cluster_name
+  description = "The name of the ecs cluster used in the account."
+}
+
+output "ecs_cluster_arn" {
+  value       = local.ecs_cluster_arn
+  description = "The ARN of the ecs cluster used in the account."
+}
+
+output "ecs_cluster_role_arn" {
+  value       = local.ecs_cluster_role_arn
+  description = "The ARN of the ecs cluster role used in the account."
+}
+
+output "ecs_cluster_capacity_provider" {
+  value       = local.ecs_cluster_capacity_provider
+  description = "The Capacity Provider of the ecs cluster role used in the account. Only needed for ec2 backed ecs clusters."
+}

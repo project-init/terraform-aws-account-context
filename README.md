@@ -40,6 +40,10 @@ No modules.
 |------|------|
 | [aws_ssm_parameter.account_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.domain](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.ecs_cluster_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.ecs_cluster_capacity_provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.ecs_cluster_name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.ecs_cluster_role_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.hosted_zone_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.ipv4_cidr_block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.private_subnets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
@@ -47,6 +51,10 @@ No modules.
 | [aws_ssm_parameter.vpc_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.account_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.domain](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
+| [aws_ssm_parameter.ecs_cluster_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
+| [aws_ssm_parameter.ecs_cluster_capacity_provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
+| [aws_ssm_parameter.ecs_cluster_name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
+| [aws_ssm_parameter.ecs_cluster_role_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.hosted_zone_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.ipv4_cidr_block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.private_subnets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
@@ -60,6 +68,10 @@ No modules.
 | <a name="input_account_id"></a> [account\_id](#input\_account\_id) | The ID for the account. | `string` | `null` | no |
 | <a name="input_aws_account_name"></a> [aws\_account\_name](#input\_aws\_account\_name) | The AWS Account Name to store the context of. | `string` | n/a | yes |
 | <a name="input_domain"></a> [domain](#input\_domain) | The main domain for the account. | `string` | `null` | no |
+| <a name="input_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#input\_ecs\_cluster\_arn) | The ARN of the ecs cluster used in the account. | `string` | `null` | no |
+| <a name="input_ecs_cluster_capacity_provider"></a> [ecs\_cluster\_capacity\_provider](#input\_ecs\_cluster\_capacity\_provider) | The Capacity Provider of the ecs cluster role used in the account. Only needed for ec2 backed ecs clusters. | `string` | `null` | no |
+| <a name="input_ecs_cluster_name"></a> [ecs\_cluster\_name](#input\_ecs\_cluster\_name) | The name of the ecs cluster used in the account. | `string` | `null` | no |
+| <a name="input_ecs_cluster_role_arn"></a> [ecs\_cluster\_role\_arn](#input\_ecs\_cluster\_role\_arn) | The ARN of the ecs cluster role used in the account. | `string` | `null` | no |
 | <a name="input_hosted_zone_id"></a> [hosted\_zone\_id](#input\_hosted\_zone\_id) | The main Hosted Zone ID for the account. | `string` | `null` | no |
 | <a name="input_ipv4_cidr_block"></a> [ipv4\_cidr\_block](#input\_ipv4\_cidr\_block) | The VPC CIDR Block (IPv4) for the account. | `string` | `null` | no |
 | <a name="input_private_subnet_ids"></a> [private\_subnet\_ids](#input\_private\_subnet\_ids) | The IDs for the private subnets. | `list(string)` | `null` | no |
@@ -72,6 +84,10 @@ No modules.
 |------|-------------|
 | <a name="output_account_id"></a> [account\_id](#output\_account\_id) | The ID of the AWS account. |
 | <a name="output_domain"></a> [domain](#output\_domain) | The main domain for the account. |
+| <a name="output_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#output\_ecs\_cluster\_arn) | The ARN of the ecs cluster used in the account. |
+| <a name="output_ecs_cluster_capacity_provider"></a> [ecs\_cluster\_capacity\_provider](#output\_ecs\_cluster\_capacity\_provider) | The Capacity Provider of the ecs cluster role used in the account. Only needed for ec2 backed ecs clusters. |
+| <a name="output_ecs_cluster_name"></a> [ecs\_cluster\_name](#output\_ecs\_cluster\_name) | The name of the ecs cluster used in the account. |
+| <a name="output_ecs_cluster_role_arn"></a> [ecs\_cluster\_role\_arn](#output\_ecs\_cluster\_role\_arn) | The ARN of the ecs cluster role used in the account. |
 | <a name="output_hosted_zone_id"></a> [hosted\_zone\_id](#output\_hosted\_zone\_id) | The main Hosted Zone ID for the account. |
 | <a name="output_ipv4_cidr_block"></a> [ipv4\_cidr\_block](#output\_ipv4\_cidr\_block) | The VPC CIDR Block (IPv4) for the account. |
 | <a name="output_private_subnet_ids"></a> [private\_subnet\_ids](#output\_private\_subnet\_ids) | The IDs for the private subnets. |

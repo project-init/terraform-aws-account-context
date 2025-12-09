@@ -67,3 +67,35 @@ variable "hosted_zone_id" {
   default     = null
   description = "The main Hosted Zone ID for the account."
 }
+
+########################################################################################################################
+### ECS
+########################################################################################################################
+
+variable "ecs_cluster_name" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The name of the ecs cluster used in the account."
+}
+
+variable "ecs_cluster_arn" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The ARN of the ecs cluster used in the account."
+}
+
+variable "ecs_cluster_role_arn" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The ARN of the ecs cluster role used in the account."
+}
+
+variable "ecs_cluster_capacity_provider" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The Capacity Provider of the ecs cluster role used in the account. Only needed for ec2 backed ecs clusters."
+}

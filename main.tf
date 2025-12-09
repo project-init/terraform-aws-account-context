@@ -62,27 +62,27 @@ resource "aws_ssm_parameter" "ipv4_cidr_block" {
 }
 
 data "aws_ssm_parameter" "public_subnets" {
-  count = var.public_subnet_ids == "" ? 1 : 0
+  count = var.public_subnet_ids == [] ? 1 : 0
   name  = local.public_subnets_param_name
 }
 
 resource "aws_ssm_parameter" "public_subnets" {
-  count = var.public_subnet_ids != null && var.public_subnet_ids != "" ? 1 : 0
+  count = var.public_subnet_ids != null && var.public_subnet_ids != [] ? 1 : 0
 
   name  = local.public_subnets_param_name
   type  = "StringList"
-  value = local.public_subnets
+  value = join(",", local.public_subnets)
 }
 
 data "aws_ssm_parameter" "private_subnets" {
-  count = var.private_subnet_ids == "" ? 1 : 0
+  count = var.private_subnet_ids == [] ? 1 : 0
   name  = local.private_subnets_param_name
 }
 
 resource "aws_ssm_parameter" "private_subnets" {
-  count = var.private_subnet_ids != null && var.private_subnet_ids != "" ? 1 : 0
+  count = var.private_subnet_ids != null && var.private_subnet_ids != [] ? 1 : 0
 
   name  = local.private_subnets_param_name
   type  = "StringList"
-  value = local.private_subnets
+  value = join(",", local.private_subnets)
 }

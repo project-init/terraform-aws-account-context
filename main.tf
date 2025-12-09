@@ -62,7 +62,7 @@ resource "aws_ssm_parameter" "ipv4_cidr_block" {
 }
 
 data "aws_ssm_parameter" "public_subnets" {
-  count = length(var.public_subnet_ids) == 0 ? 1 : 0
+  count = var.public_subnet_ids == null || length(var.public_subnet_ids) == 0 ? 1 : 0
   name  = local.public_subnets_param_name
 }
 
@@ -75,7 +75,7 @@ resource "aws_ssm_parameter" "public_subnets" {
 }
 
 data "aws_ssm_parameter" "private_subnets" {
-  count = length(var.private_subnet_ids) == 0 ? 1 : 0
+  count = var.private_subnet_ids == null || length(var.private_subnet_ids) == 0 ? 1 : 0
   name  = local.private_subnets_param_name
 }
 

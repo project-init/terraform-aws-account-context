@@ -24,6 +24,8 @@ data "aws_ssm_parameter" "account_id" {
 }
 
 resource "aws_ssm_parameter" "account_id" {
+  count = var.account_id != null && var.account_id != "" ? 1 : 0
+
   name  = local.account_id_param_name
   type  = "String"
   value = local.account_id
@@ -39,6 +41,8 @@ data "aws_ssm_parameter" "vpc_id" {
 }
 
 resource "aws_ssm_parameter" "vpc_id" {
+  count = var.vpc_id != null && var.vpc_id != "" ? 1 : 0
+
   name  = local.vpc_id_param_name
   type  = "String"
   value = local.vpc_id
@@ -50,6 +54,8 @@ data "aws_ssm_parameter" "ipv4_cidr_block" {
 }
 
 resource "aws_ssm_parameter" "ipv4_cidr_block" {
+  count = var.ipv4_cidr_block != null && var.ipv4_cidr_block != "" ? 1 : 0
+
   name  = local.ipv4_cidr_block_param_name
   type  = "String"
   value = local.ipv4_cidr_block
@@ -61,6 +67,8 @@ data "aws_ssm_parameter" "public_subnets" {
 }
 
 resource "aws_ssm_parameter" "public_subnets" {
+  count = var.public_subnet_ids != null && var.public_subnet_ids != "" ? 1 : 0
+
   name  = local.public_subnets_param_name
   type  = "StringList"
   value = local.public_subnets
@@ -72,6 +80,8 @@ data "aws_ssm_parameter" "private_subnets" {
 }
 
 resource "aws_ssm_parameter" "private_subnets" {
+  count = var.private_subnet_ids != null && var.private_subnet_ids != "" ? 1 : 0
+
   name  = local.private_subnets_param_name
   type  = "StringList"
   value = local.private_subnets

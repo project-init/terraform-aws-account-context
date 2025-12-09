@@ -173,19 +173,6 @@ resource "aws_ssm_parameter" "ecs_cluster_arn" {
   value = local.ecs_cluster_arn
 }
 
-data "aws_ssm_parameter" "ecs_cluster_role_arn" {
-  count = var.ecs_cluster_role_arn == "" ? 1 : 0
-  name  = local.ecs_cluster_role_arn_param_name
-}
-
-resource "aws_ssm_parameter" "ecs_cluster_role_arn" {
-  count = var.ecs_cluster_role_arn != null && var.ecs_cluster_role_arn != "" ? 1 : 0
-
-  name  = local.ecs_cluster_role_arn_param_name
-  type  = "String"
-  value = local.ecs_cluster_role_arn
-}
-
 data "aws_ssm_parameter" "ecs_cluster_capacity_provider" {
   count = var.ecs_cluster_capacity_provider == "" ? 1 : 0
   name  = local.ecs_cluster_capacity_provider_param_name

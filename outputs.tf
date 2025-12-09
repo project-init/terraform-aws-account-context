@@ -36,9 +36,11 @@ output "private_subnet_ids" {
 ########################################################################################################################
 
 output "domain" {
+  value       = local.domain
   description = "The main domain for the account."
 }
 
 output "hosted_zone_id" {
+  value       = local.hosted_zone_id
   description = "The main Hosted Zone ID for the account."
 }

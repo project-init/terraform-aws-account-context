@@ -30,13 +30,13 @@ locals {
   # Traffic Management
   internal_lb_name_param_name               = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/name"
   internal_lb_name                          = var.internal_lb_name == "" ? data.aws_ssm_parameter.internal_lb_name[0].insecure_value : var.internal_lb_name
-  internal_lb_dns_name_param_name           = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/name"
+  internal_lb_dns_name_param_name           = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/dns_name"
   internal_lb_dns_name                      = var.internal_lb_dns_name == "" ? data.aws_ssm_parameter.internal_lb_dns_name[0].insecure_value : var.internal_lb_dns_name
-  internal_lb_zone_id_param_name            = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/name"
+  internal_lb_zone_id_param_name            = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/zone_id"
   internal_lb_zone_id                       = var.internal_lb_zone_id == "" ? data.aws_ssm_parameter.internal_lb_zone_id[0].insecure_value : var.internal_lb_zone_id
-  internal_lb_security_group_id_param_name  = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/name"
+  internal_lb_security_group_id_param_name  = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/security_group_id"
   internal_lb_security_group_id             = var.internal_lb_security_group_id == "" ? data.aws_ssm_parameter.internal_lb_security_group_id[0].insecure_value : var.internal_lb_security_group_id
-  internal_lb_https_listener_arn_param_name = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/name"
+  internal_lb_https_listener_arn_param_name = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/https_listener_arn"
   internal_lb_https_listener_arn            = var.internal_lb_https_listener_arn == "" ? data.aws_ssm_parameter.internal_lb_https_listener_arn[0].insecure_value : var.internal_lb_https_listener_arn
 }
 

@@ -59,11 +59,6 @@ output "ecs_cluster_arn" {
   description = "The ARN of the ecs cluster used in the account."
 }
 
-output "ecs_cluster_role_arn" {
-  value       = local.ecs_cluster_role_arn
-  description = "The ARN of the ecs cluster role used in the account."
-}
-
 output "ecs_cluster_capacity_provider" {
   value       = local.ecs_cluster_capacity_provider
   description = "The Capacity Provider of the ecs cluster role used in the account. Only needed for ec2 backed ecs clusters."

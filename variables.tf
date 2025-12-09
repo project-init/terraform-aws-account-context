@@ -86,16 +86,48 @@ variable "ecs_cluster_arn" {
   description = "The ARN of the ecs cluster used in the account."
 }
 
-variable "ecs_cluster_role_arn" {
-  type        = string
-  nullable    = true
-  default     = null
-  description = "The ARN of the ecs cluster role used in the account."
-}
-
 variable "ecs_cluster_capacity_provider" {
   type        = string
   nullable    = true
   default     = null
   description = "The Capacity Provider of the ecs cluster role used in the account. Only needed for ec2 backed ecs clusters."
+}
+
+########################################################################################################################
+### Traffic Management
+########################################################################################################################
+
+variable "internal_lb_name" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The name of the internal load balancer."
+}
+
+variable "internal_lb_dns_name" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The DNS Name of the internal load balancer."
+}
+
+variable "internal_lb_zone_id" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The Zone ID of the internal load balancer."
+}
+
+variable "internal_lb_security_group_id" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The ID of the internal load balancer's security group."
+}
+
+variable "internal_lb_https_listener_arn" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The ARN of the internal load balancer's https listener."
 }

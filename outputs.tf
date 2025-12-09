@@ -68,3 +68,32 @@ output "ecs_cluster_capacity_provider" {
   value       = local.ecs_cluster_capacity_provider
   description = "The Capacity Provider of the ecs cluster role used in the account. Only needed for ec2 backed ecs clusters."
 }
+
+########################################################################################################################
+### Traffic Management
+########################################################################################################################
+
+output "internal_lb_name" {
+  value       = local.internal_lb_name
+  description = "The name of the internal load balancer."
+}
+
+output "internal_lb_dns_name" {
+  value       = local.internal_lb_dns_name
+  description = "The DNS Name of the internal load balancer."
+}
+
+output "internal_lb_zone_id" {
+  value       = local.internal_lb_zone_id
+  description = "The Zone ID of the internal load balancer."
+}
+
+output "internal_lb_security_group_id" {
+  value       = local.internal_lb_security_group_id
+  description = "The ID of the internal load balancer's security group."
+}
+
+output "internal_lb_https_listener_arn" {
+  value       = local.internal_lb_https_listener_arn
+  description = "The ARN of the internal load balancer's https listener."
+}

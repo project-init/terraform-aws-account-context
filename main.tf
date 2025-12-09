@@ -24,10 +24,20 @@ locals {
   ecs_cluster_name                         = var.ecs_cluster_name == "" ? data.aws_ssm_parameter.ecs_cluster_name[0].insecure_value : var.ecs_cluster_name
   ecs_cluster_arn_param_name               = "/account-context/${var.aws_account_name}/ecs/cluster/arn"
   ecs_cluster_arn                          = var.ecs_cluster_arn == "" ? data.aws_ssm_parameter.ecs_cluster_arn[0].insecure_value : var.ecs_cluster_arn
-  ecs_cluster_role_arn_param_name          = "/account-context/${var.aws_account_name}/ecs/cluster/role/arn"
-  ecs_cluster_role_arn                     = var.ecs_cluster_role_arn == "" ? data.aws_ssm_parameter.ecs_cluster_role_arn[0].insecure_value : var.ecs_cluster_role_arn
   ecs_cluster_capacity_provider_param_name = "/account-context/${var.aws_account_name}/ecs/cluster/capacity_provider"
   ecs_cluster_capacity_provider            = var.ecs_cluster_capacity_provider == "" ? data.aws_ssm_parameter.ecs_cluster_capacity_provider[0].insecure_value : var.ecs_cluster_capacity_provider
+
+  # Traffic Management
+  internal_lb_name_param_name               = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/name"
+  internal_lb_name                          = var.internal_lb_name == "" ? data.aws_ssm_parameter.internal_lb_name[0].insecure_value : var.internal_lb_name
+  internal_lb_dns_name_param_name           = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/name"
+  internal_lb_dns_name                      = var.internal_lb_dns_name == "" ? data.aws_ssm_parameter.internal_lb_dns_name[0].insecure_value : var.internal_lb_dns_name
+  internal_lb_zone_id_param_name            = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/name"
+  internal_lb_zone_id                       = var.internal_lb_zone_id == "" ? data.aws_ssm_parameter.internal_lb_zone_id[0].insecure_value : var.internal_lb_zone_id
+  internal_lb_security_group_id_param_name  = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/name"
+  internal_lb_security_group_id             = var.internal_lb_security_group_id == "" ? data.aws_ssm_parameter.internal_lb_security_group_id[0].insecure_value : var.internal_lb_security_group_id
+  internal_lb_https_listener_arn_param_name = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/name"
+  internal_lb_https_listener_arn            = var.internal_lb_https_listener_arn == "" ? data.aws_ssm_parameter.internal_lb_https_listener_arn[0].insecure_value : var.internal_lb_https_listener_arn
 }
 
 ########################################################################################################################
@@ -187,4 +197,73 @@ resource "aws_ssm_parameter" "ecs_cluster_capacity_provider" {
   name  = local.ecs_cluster_capacity_provider_param_name
   type  = "String"
   value = local.ecs_cluster_capacity_provider
+}
+
+########################################################################################################################
+### Traffic Management
+########################################################################################################################
+
+data "aws_ssm_parameter" "internal_lb_name" {
+  count = var.internal_lb_name == "" ? 1 : 0
+  name  = local.internal_lb_name_param_name
+}
+
+resource "aws_ssm_parameter" "internal_lb_name" {
+  count = var.internal_lb_name != null && var.internal_lb_name != "" ? 1 : 0
+
+  name  = local.internal_lb_name_param_name
+  type  = "String"
+  value = local.internal_lb_name
+}
+
+data "aws_ssm_parameter" "internal_lb_dns_name" {
+  count = var.internal_lb_dns_name == "" ? 1 : 0
+  name  = local.internal_lb_dns_name_param_name
+}
+
+resource "aws_ssm_parameter" "internal_lb_dns_name" {
+  count = var.internal_lb_dns_name != null && var.internal_lb_dns_name != "" ? 1 : 0
+
+  name  = local.internal_lb_dns_name_param_name
+  type  = "String"
+  value = local.internal_lb_dns_name
+}
+
+data "aws_ssm_parameter" "internal_lb_zone_id" {
+  count = var.internal_lb_zone_id == "" ? 1 : 0
+  name  = local.internal_lb_zone_id_param_name
+}
+
+resource "aws_ssm_parameter" "internal_lb_zone_id" {
+  count = var.internal_lb_zone_id != null && var.internal_lb_zone_id != "" ? 1 : 0
+
+  name  = local.internal_lb_zone_id_param_name
+  type  = "String"
+  value = local.internal_lb_zone_id
+}
+
+data "aws_ssm_parameter" "internal_lb_security_group_id" {
+  count = var.internal_lb_security_group_id == "" ? 1 : 0
+  name  = local.internal_lb_security_group_id_param_name
+}
+
+resource "aws_ssm_parameter" "internal_lb_security_group_id" {
+  count = var.internal_lb_security_group_id != null && var.internal_lb_security_group_id != "" ? 1 : 0
+
+  name  = local.internal_lb_security_group_id_param_name
+  type  = "String"
+  value = local.internal_lb_security_group_id
+}
+
+data "aws_ssm_parameter" "internal_lb_https_listener_arn" {
+  count = var.internal_lb_https_listener_arn == "" ? 1 : 0
+  name  = local.internal_lb_https_listener_arn_param_name
+}
+
+resource "aws_ssm_parameter" "internal_lb_https_listener_arn" {
+  count = var.internal_lb_https_listener_arn != null && var.internal_lb_https_listener_arn != "" ? 1 : 0
+
+  name  = local.internal_lb_https_listener_arn_param_name
+  type  = "String"
+  value = local.internal_lb_https_listener_arn
 }

@@ -3,7 +3,7 @@
 ########################################################################################################################
 
 variable "aws_account_name" {
-  type = string
+  type        = string
   description = "The AWS Account Name to store the context of."
 }
 

@@ -43,7 +43,6 @@ No modules.
 | [aws_ssm_parameter.ecs_cluster_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.ecs_cluster_capacity_provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.ecs_cluster_name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
-| [aws_ssm_parameter.ecs_cluster_role_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.hosted_zone_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.internal_lb_dns_name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.internal_lb_https_listener_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
@@ -59,7 +58,6 @@ No modules.
 | [aws_ssm_parameter.ecs_cluster_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.ecs_cluster_capacity_provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.ecs_cluster_name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
-| [aws_ssm_parameter.ecs_cluster_role_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.hosted_zone_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.internal_lb_dns_name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.internal_lb_https_listener_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
@@ -101,7 +99,6 @@ No modules.
 | <a name="output_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#output\_ecs\_cluster\_arn) | The ARN of the ecs cluster used in the account. |
 | <a name="output_ecs_cluster_capacity_provider"></a> [ecs\_cluster\_capacity\_provider](#output\_ecs\_cluster\_capacity\_provider) | The Capacity Provider of the ecs cluster role used in the account. Only needed for ec2 backed ecs clusters. |
 | <a name="output_ecs_cluster_name"></a> [ecs\_cluster\_name](#output\_ecs\_cluster\_name) | The name of the ecs cluster used in the account. |
-| <a name="output_ecs_cluster_role_arn"></a> [ecs\_cluster\_role\_arn](#output\_ecs\_cluster\_role\_arn) | The ARN of the ecs cluster role used in the account. |
 | <a name="output_hosted_zone_id"></a> [hosted\_zone\_id](#output\_hosted\_zone\_id) | The main Hosted Zone ID for the account. |
 | <a name="output_internal_lb_dns_name"></a> [internal\_lb\_dns\_name](#output\_internal\_lb\_dns\_name) | The DNS Name of the internal load balancer. |
 | <a name="output_internal_lb_https_listener_arn"></a> [internal\_lb\_https\_listener\_arn](#output\_internal\_lb\_https\_listener\_arn) | The ARN of the internal load balancer's https listener. |

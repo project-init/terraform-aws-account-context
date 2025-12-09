@@ -49,3 +49,21 @@ variable "private_subnet_ids" {
   default     = null
   description = "The IDs for the private subnets."
 }
+
+########################################################################################################################
+### Domain/Route53
+########################################################################################################################
+
+variable "domain" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The main domain for the account."
+}
+
+variable "hosted_zone_id" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The main Hosted Zone ID for the account."
+}

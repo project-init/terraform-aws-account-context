@@ -12,6 +12,12 @@ locals {
   public_subnets             = var.public_subnet_ids != null && length(var.public_subnet_ids) == 0 ? split(",", data.aws_ssm_parameter.public_subnets[0].insecure_value) : var.public_subnet_ids
   private_subnets_param_name = "/account-context/${var.aws_account_name}/network/private_subnets"
   private_subnets            = var.private_subnet_ids != null && length(var.private_subnet_ids) == 0 ? split(",", data.aws_ssm_parameter.private_subnets[0].insecure_value) : var.private_subnet_ids
+
+  # Domain
+  domain_param_name         = "/account-context/${var.aws_account_name}/domain/name"
+  domain                    = var.domain == "" ? data.aws_ssm_parameter.domain[0].insecure_value : var.domain
+  hosted_zone_id_param_name = "/account-context/${var.aws_account_name}/domain/hosted_zone_id"
+  hosted_zone_id            = var.hosted_zone_id == "" ? data.aws_ssm_parameter.hosted_zone_id[0].insecure_value : var.hosted_zone_id
 }
 
 ########################################################################################################################
@@ -85,4 +91,34 @@ resource "aws_ssm_parameter" "private_subnets" {
   name  = local.private_subnets_param_name
   type  = "StringList"
   value = join(",", local.private_subnets)
+}
+
+########################################################################################################################
+### Domain
+########################################################################################################################
+
+data "aws_ssm_parameter" "domain" {
+  count = var.domain == "" ? 1 : 0
+  name  = local.domain_param_name
+}
+
+resource "aws_ssm_parameter" "domain" {
+  count = var.domain != null && var.domain != "" ? 1 : 0
+
+  name  = local.domain_param_name
+  type  = "String"
+  value = local.domain
+}
+
+data "aws_ssm_parameter" "hosted_zone_id" {
+  count = var.hosted_zone_id == "" ? 1 : 0
+  name  = local.hosted_zone_id_param_name
+}
+
+resource "aws_ssm_parameter" "hosted_zone_id" {
+  count = var.hosted_zone_id != null && var.hosted_zone_id != "" ? 1 : 0
+
+  name  = local.hosted_zone_id_param_name
+  type  = "String"
+  value = local.hosted_zone_id
 }

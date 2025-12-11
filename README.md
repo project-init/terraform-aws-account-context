@@ -105,6 +105,7 @@ No modules.
 | <a name="output_hosted_zone_id"></a> [hosted\_zone\_id](#output\_hosted\_zone\_id) | The main Hosted Zone ID for the account. |
 | <a name="output_internal_lb_dns_name"></a> [internal\_lb\_dns\_name](#output\_internal\_lb\_dns\_name) | The DNS Name of the internal load balancer. |
 | <a name="output_internal_lb_https_listener_arn"></a> [internal\_lb\_https\_listener\_arn](#output\_internal\_lb\_https\_listener\_arn) | The ARN of the internal load balancer's https listener. |
+| <a name="output_internal_lb_https_prelive_listener_arn"></a> [internal\_lb\_https\_prelive\_listener\_arn](#output\_internal\_lb\_https\_prelive\_listener\_arn) | The ARN of the internal load balancer's prelive https listener. |
 | <a name="output_internal_lb_name"></a> [internal\_lb\_name](#output\_internal\_lb\_name) | The name of the internal load balancer. |
 | <a name="output_internal_lb_security_group_id"></a> [internal\_lb\_security\_group\_id](#output\_internal\_lb\_security\_group\_id) | The ID of the internal load balancer's security group. |
 | <a name="output_internal_lb_zone_id"></a> [internal\_lb\_zone\_id](#output\_internal\_lb\_zone\_id) | The Zone ID of the internal load balancer. |

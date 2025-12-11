@@ -92,3 +92,8 @@ output "internal_lb_https_listener_arn" {
   value       = local.internal_lb_https_listener_arn
   description = "The ARN of the internal load balancer's https listener."
 }
+
+output "internal_lb_https_prelive_listener_arn" {
+  value       = local.internal_lb_https_prelive_listener_arn
+  description = "The ARN of the internal load balancer's prelive https listener."
+}

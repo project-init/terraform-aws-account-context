@@ -131,3 +131,10 @@ variable "internal_lb_https_listener_arn" {
   default     = null
   description = "The ARN of the internal load balancer's https listener."
 }
+
+variable "internal_lb_https_prelive_listener_arn" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The ARN of the internal load balancer's prelive https listener."
+}

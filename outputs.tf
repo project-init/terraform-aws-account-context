@@ -97,3 +97,12 @@ output "internal_lb_https_prelive_listener_arn" {
   value       = local.internal_lb_https_prelive_listener_arn
   description = "The ARN of the internal load balancer's prelive https listener."
 }
+
+########################################################################################################################
+### VPN
+########################################################################################################################
+
+output "vpn_security_group_id" {
+  value       = local.vpn_security_group_id
+  description = "The ID of the security group for the VPN."
+}

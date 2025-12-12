@@ -40,6 +40,10 @@ locals {
   internal_lb_https_listener_arn                    = var.internal_lb_https_listener_arn == "" ? data.aws_ssm_parameter.internal_lb_https_listener_arn[0].insecure_value : var.internal_lb_https_listener_arn
   internal_lb_https_prelive_listener_arn_param_name = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/https_prelive_listener_arn"
   internal_lb_https_prelive_listener_arn            = var.internal_lb_https_prelive_listener_arn == "" ? data.aws_ssm_parameter.internal_lb_https_prelive_listener_arn[0].insecure_value : var.internal_lb_https_prelive_listener_arn
+
+  # VPN
+  vpn_security_group_id_param_name = "/account-context/${var.aws_account_name}/vpn/security_group/id"
+  vpn_security_group_id            = var.vpn_security_group_id == "" ? data.aws_ssm_parameter.vpn_security_group_id[0].insecure_value : var.vpn_security_group_id
 }
 
 ########################################################################################################################
@@ -268,4 +272,21 @@ resource "aws_ssm_parameter" "internal_lb_https_prelive_listener_arn" {
   name  = local.internal_lb_https_prelive_listener_arn_param_name
   type  = "String"
   value = local.internal_lb_https_prelive_listener_arn
+}
+
+########################################################################################################################
+### VPN
+########################################################################################################################
+
+data "aws_ssm_parameter" "vpn_security_group_id" {
+  count = var.vpn_security_group_id == "" ? 1 : 0
+  name  = local.vpn_security_group_id_param_name
+}
+
+resource "aws_ssm_parameter" "vpn_security_group_id" {
+  count = var.vpn_security_group_id != null && var.vpn_security_group_id != "" ? 1 : 0
+
+  name  = local.vpn_security_group_id_param_name
+  type  = "String"
+  value = local.vpn_security_group_id
 }

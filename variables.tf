@@ -138,3 +138,14 @@ variable "internal_lb_https_prelive_listener_arn" {
   default     = null
   description = "The ARN of the internal load balancer's prelive https listener."
 }
+
+########################################################################################################################
+### VPN
+########################################################################################################################
+
+variable "vpn_security_group_id" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The ID of the security group for the VPN."
+}

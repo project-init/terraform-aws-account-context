@@ -54,6 +54,7 @@ No modules.
 | [aws_ssm_parameter.private_subnets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.public_subnets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.vpc_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.vpn_security_group_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.account_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.domain](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.ecs_cluster_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
@@ -70,6 +71,7 @@ No modules.
 | [aws_ssm_parameter.private_subnets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.public_subnets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.vpc_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
+| [aws_ssm_parameter.vpn_security_group_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 
 ## Inputs
 
@@ -92,6 +94,7 @@ No modules.
 | <a name="input_private_subnet_ids"></a> [private\_subnet\_ids](#input\_private\_subnet\_ids) | The IDs for the private subnets. | `list(string)` | `null` | no |
 | <a name="input_public_subnet_ids"></a> [public\_subnet\_ids](#input\_public\_subnet\_ids) | The IDs for the public subnets. | `list(string)` | `null` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The VPC ID for the account. | `string` | `null` | no |
+| <a name="input_vpn_security_group_id"></a> [vpn\_security\_group\_id](#input\_vpn\_security\_group\_id) | The ID of the security group for the VPN. | `string` | `null` | no |
 
 ## Outputs
 
@@ -113,4 +116,5 @@ No modules.
 | <a name="output_private_subnet_ids"></a> [private\_subnet\_ids](#output\_private\_subnet\_ids) | The IDs for the private subnets. |
 | <a name="output_public_subnet_ids"></a> [public\_subnet\_ids](#output\_public\_subnet\_ids) | The IDs for the public subnets. |
 | <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | The ID of the VPC for the account. |
+| <a name="output_vpn_security_group_id"></a> [vpn\_security\_group\_id](#output\_vpn\_security\_group\_id) | The ID of the security group for the VPN. |
 <!-- END_TF_DOCS -->

@@ -139,6 +139,20 @@ variable "internal_lb_https_prelive_listener_arn" {
   description = "The ARN of the internal load balancer's prelive https listener."
 }
 
+variable "api_target_group_arn" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The ARN of the target group controlling api traffic."
+}
+
+variable "api_prelive_target_group_arn" {
+  type        = string
+  nullable    = true
+  default     = null
+  description = "The ARN of the target group controlling prelive api traffic."
+}
+
 ########################################################################################################################
 ### VPN
 ########################################################################################################################

@@ -40,6 +40,10 @@ locals {
   internal_lb_https_listener_arn                    = var.internal_lb_https_listener_arn == "" ? data.aws_ssm_parameter.internal_lb_https_listener_arn[0].insecure_value : var.internal_lb_https_listener_arn
   internal_lb_https_prelive_listener_arn_param_name = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/https_prelive_listener_arn"
   internal_lb_https_prelive_listener_arn            = var.internal_lb_https_prelive_listener_arn == "" ? data.aws_ssm_parameter.internal_lb_https_prelive_listener_arn[0].insecure_value : var.internal_lb_https_prelive_listener_arn
+  api_target_group_arn_param_name                   = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/api_target_group_arn"
+  api_target_group_arn                              = var.api_target_group_arn == "" ? data.aws_ssm_parameter.api_target_group_arn[0].insecure_value : var.api_target_group_arn
+  api_prelive_target_group_arn_param_name           = "/account-context/${var.aws_account_name}/traffic-management/load-balancer/internal/api_prelive_target_group_arn"
+  api_prelive_target_group_arn                      = var.api_prelive_target_group_arn == "" ? data.aws_ssm_parameter.api_prelive_target_group_arn[0].insecure_value : var.api_prelive_target_group_arn
 
   # VPN
   vpn_security_group_id_param_name = "/account-context/${var.aws_account_name}/vpn/security_group/id"
@@ -272,6 +276,32 @@ resource "aws_ssm_parameter" "internal_lb_https_prelive_listener_arn" {
   name  = local.internal_lb_https_prelive_listener_arn_param_name
   type  = "String"
   value = local.internal_lb_https_prelive_listener_arn
+}
+
+data "aws_ssm_parameter" "api_target_group_arn" {
+  count = var.api_target_group_arn == "" ? 1 : 0
+  name  = local.api_target_group_arn_param_name
+}
+
+resource "aws_ssm_parameter" "api_target_group_arn" {
+  count = var.api_target_group_arn != null && var.api_target_group_arn != "" ? 1 : 0
+
+  name  = local.api_target_group_arn_param_name
+  type  = "String"
+  value = local.api_target_group_arn
+}
+
+data "aws_ssm_parameter" "api_prelive_target_group_arn" {
+  count = var.api_prelive_target_group_arn == "" ? 1 : 0
+  name  = local.api_prelive_target_group_arn_param_name
+}
+
+resource "aws_ssm_parameter" "api_prelive_target_group_arn" {
+  count = var.api_prelive_target_group_arn != null && var.api_prelive_target_group_arn != "" ? 1 : 0
+
+  name  = local.api_prelive_target_group_arn_param_name
+  type  = "String"
+  value = local.api_prelive_target_group_arn
 }
 
 ########################################################################################################################

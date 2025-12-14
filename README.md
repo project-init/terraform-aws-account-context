@@ -39,6 +39,8 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_ssm_parameter.account_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.api_prelive_target_group_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.api_target_group_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.domain](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.ecs_cluster_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.ecs_cluster_capacity_provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
@@ -56,6 +58,8 @@ No modules.
 | [aws_ssm_parameter.vpc_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.vpn_security_group_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.account_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
+| [aws_ssm_parameter.api_prelive_target_group_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
+| [aws_ssm_parameter.api_target_group_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.domain](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.ecs_cluster_arn](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.ecs_cluster_capacity_provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
@@ -78,6 +82,8 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_account_id"></a> [account\_id](#input\_account\_id) | The ID for the account. | `string` | `null` | no |
+| <a name="input_api_prelive_target_group_arn"></a> [api\_prelive\_target\_group\_arn](#input\_api\_prelive\_target\_group\_arn) | The ARN of the target group controlling prelive api traffic. | `string` | `null` | no |
+| <a name="input_api_target_group_arn"></a> [api\_target\_group\_arn](#input\_api\_target\_group\_arn) | The ARN of the target group controlling api traffic. | `string` | `null` | no |
 | <a name="input_aws_account_name"></a> [aws\_account\_name](#input\_aws\_account\_name) | The AWS Account Name to store the context of. | `string` | n/a | yes |
 | <a name="input_domain"></a> [domain](#input\_domain) | The main domain for the account. | `string` | `null` | no |
 | <a name="input_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#input\_ecs\_cluster\_arn) | The ARN of the ecs cluster used in the account. | `string` | `null` | no |
@@ -101,6 +107,8 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_account_id"></a> [account\_id](#output\_account\_id) | The ID of the AWS account. |
+| <a name="output_api_prelive_target_group_arn"></a> [api\_prelive\_target\_group\_arn](#output\_api\_prelive\_target\_group\_arn) | The ARN of the target group controlling prelive api traffic. |
+| <a name="output_api_target_group_arn"></a> [api\_target\_group\_arn](#output\_api\_target\_group\_arn) | The ARN of the target group controlling api traffic. |
 | <a name="output_domain"></a> [domain](#output\_domain) | The main domain for the account. |
 | <a name="output_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#output\_ecs\_cluster\_arn) | The ARN of the ecs cluster used in the account. |
 | <a name="output_ecs_cluster_capacity_provider"></a> [ecs\_cluster\_capacity\_provider](#output\_ecs\_cluster\_capacity\_provider) | The Capacity Provider of the ecs cluster role used in the account. Only needed for ec2 backed ecs clusters. |

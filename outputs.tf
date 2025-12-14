@@ -98,6 +98,16 @@ output "internal_lb_https_prelive_listener_arn" {
   description = "The ARN of the internal load balancer's prelive https listener."
 }
 
+output "api_target_group_arn" {
+  value       = local.api_target_group_arn
+  description = "The ARN of the target group controlling api traffic."
+}
+
+output "api_prelive_target_group_arn" {
+  value       = local.api_prelive_target_group_arn
+  description = "The ARN of the target group controlling prelive api traffic."
+}
+
 ########################################################################################################################
 ### VPN
 ########################################################################################################################
